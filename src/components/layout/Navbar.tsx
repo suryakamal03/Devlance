@@ -95,7 +95,7 @@ export function Navbar() {
           href="#top"
           className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
         >
-          <img src="/logo.png" alt="Devlance logo" className="h-8 w-8 rounded-full object-cover" />
+          <img src="/Logo.png" alt="Devlance logo" className="h-8 w-8 rounded-full object-cover" />
           <span>Devlance</span>
         </a>
 
@@ -159,7 +159,7 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
                 >
-                  <img src="/logo.png" alt="Devlance logo" className="h-8 w-8 rounded-full object-cover" />
+                  <img src="/Logo.png" alt="Devlance logo" className="h-8 w-8 rounded-full object-cover" />
                   <span>Devlance</span>
                 </a>
                 <button
