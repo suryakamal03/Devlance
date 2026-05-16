@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Cal from "@calcom/embed-react"
 
 export function BookACall() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK?.trim() || "surya-093128/30min"
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK?.trim() || "devlance1"
   const hasCalLink = Boolean(calLink)
 
   return (
@@ -44,7 +44,9 @@ export function BookACall() {
               No commitment. No pressure.
             </motion.p>
             <motion.a
-              href="#top"
+              href="https://cal.com/devlance1"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
