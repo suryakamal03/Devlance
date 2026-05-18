@@ -86,7 +86,7 @@ export function Navbar() {
       className={[
         "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
         isScrolled
-          ? "border-[#e5e5e5] bg-white/95 backdrop-blur-[12px]"
+          ? "border-[#e5e5e5] bg-white shadow-[0_8px_30px_rgba(15,15,15,0.04)]"
           : "border-transparent bg-white",
       ].join(" ")}
     >
