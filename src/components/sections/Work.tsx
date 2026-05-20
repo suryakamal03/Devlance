@@ -1,22 +1,18 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
-import { Badge } from "@/components/ui/badge"
 import { SectionHeading } from "@/components/sections/SectionHeading"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const projects = [
   {
-    name: "Harbor Wellness",
-    tags: ["Next.js", "Tailwind", "Vercel"],
-  },
-  {
-    name: "Oak & Co. Studio",
-    tags: ["Next.js", "Tailwind", "Vercel"],
-  },
-  {
-    name: "Monarch Builders",
-    tags: ["Next.js", "Tailwind", "Vercel"],
+    name: "Turf Rust",
+    url: "https://turf-rust.vercel.app/",
+    screenshot: "/Preview%20Turf.jpeg",
   },
 ]
 
@@ -43,50 +39,72 @@ export function Work() {
           {projects.map((project) => (
             <motion.article
               key={project.name}
-              whileHover={{ y: -6 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
-              className="group rounded-[1.25rem] border border-[#e5e5e5] bg-white p-5"
+              className="group w-full bg-transparent p-0"
             >
-              <div className="relative flex h-72 items-center justify-center overflow-hidden rounded-[1rem] border border-[#e5e5e5] bg-[#f5f5f5]">
-                <motion.div
-                  animate={{ x: ["-120%", "120%"] }}
-                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-y-0 left-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.85),transparent)]"
-                />
-                <div className="relative text-center">
-                  <p className="font-heading text-3xl font-bold tracking-[-0.05em] text-[#999999]">
-                    Coming Soon
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4 px-1 pt-5">
-                <h3 className="font-heading text-[18px] font-bold tracking-[-0.03em] text-[#0f0f0f]">
-                  {project.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="rounded-full border-[#e5e5e5] bg-white px-3 py-1 text-[11px] font-medium text-[#555555]"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <motion.a
-                  href="#book"
-                  whileHover={{ x: 4 }}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f0f0f] transition-colors hover:text-[#f97316]"
-                >
-                  View Project <span aria-hidden="true">→</span>
-                </motion.a>
+              <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm group-hover:shadow-md transition-all duration-300 ease-out">
+                <PreviewCard project={project} />
               </div>
             </motion.article>
           ))}
         </motion.div>
       </div>
     </section>
+  )
+}
+
+function PreviewCard({ project }: { project: { name: string; url: string; screenshot?: string } }) {
+  const [useIframe, setUseIframe] = useState(false)
+
+  return (
+    <>
+      <div className="relative w-full overflow-hidden bg-transparent aspect-video rounded-md shadow-sm transition-all duration-300">
+        {!useIframe && project.screenshot ? (
+          <a href={project.url} target="_blank" rel="noreferrer" className="block w-full h-full relative group/image">
+            <Image
+              src={project.screenshot}
+              alt={`${project.name} screenshot`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover group-hover/image:opacity-90 transition-opacity duration-300"
+              onError={() => setUseIframe(true)}
+            />
+          </a>
+        ) : (
+          <iframe
+            src={project.url}
+            title={`${project.name} preview`}
+            className="w-full h-full border-0"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+            scrolling="no"
+          />
+        )}
+      </div>
+
+      <div className="mt-3 px-1 transition-all duration-300">
+        {(() => {
+          const slug = project.name
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9\-]/g, "")
+          return (
+            <div className="mt-1 flex items-center justify-between gap-4">
+              <a href={project.url} target="_blank" rel="noreferrer" className="inline-block transition-colors duration-300">
+                <p className="font-heading text-sm font-semibold tracking-[-0.02em] text-[#0f0f0f]">
+                  {project.name}
+                </p>
+              </a>
+
+              <div className="ml-auto transition-all duration-300">
+                <Button asChild size="sm" variant="ghost">
+                  <Link href={`/${slug}/casestudy`}>Case Study</Link>
+                </Button>
+              </div>
+            </div>
+          )
+        })()}
+      </div>
+    </>
   )
 }
