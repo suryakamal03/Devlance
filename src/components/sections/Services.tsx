@@ -1,34 +1,33 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Database, Globe, Search, Wrench, Zap } from "lucide-react"
+import Link from "next/link"
 
+import { AnimatedSection } from "@/components/sections/AnimatedSection"
 import { SectionHeading } from "@/components/sections/SectionHeading"
 
 const services = [
   {
     title: "Custom Websites",
-    description: "Built with Next.js for speed and SEO.",
+    description: "Built with Next.js for speed, SEO, and a clean user journey that turns interest into enquiries.",
     icon: Globe,
   },
   {
     title: "Sanity CMS Setup",
-    description: "Manage your content easily with a clean, powerful CMS dashboard.",
+    description: "Manage your content easily with a clean, powerful CMS dashboard that keeps updates simple for your team.",
     icon: Database,
   },
   {
     title: "Landing Pages",
-    description: "High converting pages that get results.",
+    description: "High-converting pages designed to capture attention quickly, explain the offer clearly, and drive action.",
     icon: Zap,
   },
   {
     title: "SEO Optimization",
-    description: "Rank higher and get found on Google.",
+    description: "Rank higher and get found on Google with on-page structure, semantic content, and technical best practices.",
     icon: Search,
   },
   {
     title: "Website Maintenance",
-    description: "We keep your site fast and updated.",
+    description: "We keep your site fast, secure, and updated so it continues performing well after launch.",
     icon: Wrench,
   },
 ]
@@ -40,34 +39,16 @@ export function Services() {
         <SectionHeading
           label="SERVICES"
           title={["Everything you need", "to get online and grow."]}
-          description="Five core services, one focused team."
+          description="From custom Next.js websites to Sanity CMS integration, we offer everything a growing business needs to establish a strong online presence. Our team specializes in performance-first development that ranks on Google and converts visitors into customers."
           titleClassName="max-w-3xl"
         />
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.08,
-              },
-            },
-          }}
-          className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3"
-        >
+        <AnimatedSection className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => {
             const Icon = service.icon
 
             return (
-              <motion.article
-                key={service.title}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 300, damping: 24 }}
-                className="group rounded-[1rem] border border-[#e5e5e5] bg-white p-8"
-              >
+              <article key={service.title} className="group rounded-2xl border border-[#e5e5e5] bg-white p-8">
                 <div className="flex h-full flex-col gap-8">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#fff7ed] text-[#f97316]">
                     <Icon className="size-5" />
@@ -78,18 +59,14 @@ export function Services() {
                     </h3>
                     <p className="text-sm leading-7 text-[#555555]">{service.description}</p>
                   </div>
-                  <motion.a
-                    href="#book"
-                    whileHover={{ x: 4 }}
-                    className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#f97316]"
-                  >
-                    Learn more <span aria-hidden="true">→</span>
-                  </motion.a>
+                  <Link href="/#book" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#f97316] transition-transform hover:translate-x-1">
+                    Get this service <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
-              </motion.article>
+              </article>
             )
           })}
-        </motion.div>
+        </AnimatedSection>
       </div>
     </section>
   )

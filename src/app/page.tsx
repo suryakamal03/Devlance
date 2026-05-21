@@ -1,10 +1,9 @@
-"use client"
-
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { Hero } from "@/components/sections/Hero"
 import { Services } from "@/components/sections/Services"
 import { Work } from "@/components/sections/Work"
+import { About } from "@/components/sections/About"
 import { Testimonials } from "@/components/sections/Testimonials"
 import { Plans } from "@/components/sections/Plans"
 import { FAQ } from "@/components/sections/FAQ"
@@ -18,6 +17,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Work />
+        <About />
         <Testimonials />
         <Plans />
         <FAQ />

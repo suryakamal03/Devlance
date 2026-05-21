@@ -3,20 +3,28 @@ import { DM_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import Loader from "@/components/ui/Loader";
 
+const GOOGLE_ANALYTICS_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Devlance — Web Development Agency",
+  metadataBase: new URL("https://devlance1.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  title: "Devlance | Next.js Web Development Agency India",
   description:
-    "Devlance helps small businesses and startups get online with fast, modern websites built with Next.js and Sanity CMS.",
+    "Devlance is a Chennai-based Next.js web development agency building fast, SEO-optimized websites for startups and small businesses using Sanity CMS and Vercel. Starting ₹5,000.",
   keywords: [
     "web development agency India",
     "hire web developer",
@@ -45,9 +53,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Devlance — Web Development Agency",
-    description: "Fast, modern, affordable websites for small businesses.",
-    url: "https://devlance.vercel.app",
+    title: "Devlance | Next.js Web Development Agency India",
+    description: "Devlance builds fast, SEO-optimized websites for startups and small businesses in India.",
+    url: "https://devlance1.vercel.app",
     type: "website",
   },
 };
@@ -62,8 +70,54 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${syne.variable} h-full antialiased`}
     >
+      {GOOGLE_ANALYTICS_ID ? (
+        <head>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ANALYTICS_ID}');
+`,
+            }}
+          />
+        </head>
+      ) : null}
       <body className="min-h-full flex flex-col bg-white text-[#0f0f0f]">
         <Loader />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Devlance",
+              url: "https://devlance1.vercel.app",
+              logo: "https://devlance1.vercel.app/logo.png",
+              description: "Chennai-based Next.js web development agency building fast SEO-optimized websites for startups and small businesses.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Chennai",
+                addressRegion: "Tamil Nadu",
+                addressCountry: "IN",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                email: "devlancestudio@gmail.com",
+                availableLanguage: ["English", "Tamil"],
+              },
+              sameAs: [
+                "https://linkedin.com/company/devlance",
+                "https://twitter.com/devlance",
+                "https://github.com/devlance",
+                "https://instagram.com/devlance",
+              ],
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

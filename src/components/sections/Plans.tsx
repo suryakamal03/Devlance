@@ -1,7 +1,6 @@
-"use client"
+import Link from "next/link"
 
-import { motion } from "framer-motion"
-
+import { AnimatedSection } from "@/components/sections/AnimatedSection"
 import { SectionHeading } from "@/components/sections/SectionHeading"
 
 const plans = [
@@ -61,24 +60,14 @@ export function Plans() {
           align="center"
         />
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch"
-        >
-          {plans.map((plan, idx) => {
+        <AnimatedSection className="mt-14 grid grid-cols-1 gap-5 items-stretch md:grid-cols-2">
+          {plans.map((plan) => {
             const isActive = plan.featured
             const baseBg = isActive ? "bg-[#f97316] text-white" : "bg-[#f5f5f5] text-[#0f0f0f]"
 
             return (
-              <motion.article
+              <article
                 key={plan.key}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                whileHover={isActive ? {} : { scale: 1.01 }}
                 className={`${baseBg} w-full rounded-3xl p-7 h-full flex flex-col`}
               >
                 <div className="flex w-full flex-col md:flex-row md:items-stretch md:justify-between h-full">
@@ -122,24 +111,22 @@ export function Plans() {
                   </div>
 
                   <div className="mt-auto flex md:mt-0 md:w-1/4 md:justify-end md:items-end">
-                    <motion.a
-                      href="#book"
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.96 }}
+                    <Link
+                      href="/#book"
                       className={`${
                         isActive
                           ? "bg-white text-[#f97316]"
                           : "bg-[#0f0f0f] text-white"
                       } rounded-full px-5 py-2.5 font-semibold text-sm w-full md:w-auto text-center`}
                     >
-                      Book a Call
-                    </motion.a>
+                      Get Started
+                    </Link>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             )
           })}
-        </motion.div>
+        </AnimatedSection>
       </div>
     </section>
   )
