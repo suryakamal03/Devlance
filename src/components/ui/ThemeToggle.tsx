@@ -12,7 +12,18 @@ export default function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <button
+        type="button"
+        aria-label="Toggle dark mode"
+        className="flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium opacity-0"
+      >
+        <span className="h-3.5 w-3.5" />
+        Dark Mode
+      </button>
+    );
+  }
 
   const isDark = theme === "dark";
 

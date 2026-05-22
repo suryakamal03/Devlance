@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const navItems = [
@@ -94,8 +95,16 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a
           href="#top"
-          className="font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
+          className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
         >
+          <Image
+            src="/Logo.jpg"
+            alt="Devlance logo"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full object-cover"
+            priority={true}
+          />
           <span>Devlance</span>
         </a>
 
@@ -157,8 +166,16 @@ export function Navbar() {
                 <a
                   href="#top"
                   onClick={() => setIsOpen(false)}
-                  className="font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
+                  className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
                 >
+                  <Image
+                    src="/Logo.jpg"
+                    alt="Devlance logo"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 rounded-full object-cover"
+                    priority={true}
+                  />
                   <span>Devlance</span>
                 </a>
                 <button
