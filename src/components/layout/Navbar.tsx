@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const navItems = [
@@ -97,13 +96,12 @@ export function Navbar() {
           href="#top"
           className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
         >
-          <Image
+          <img
             src="/Logo.jpg"
             alt="Devlance logo"
             width={32}
             height={32}
             className="h-8 w-8 rounded-full object-cover"
-            priority={true}
           />
           <span>Devlance</span>
         </a>
@@ -168,13 +166,12 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
                 >
-                  <Image
+                  <img
                     src="/Logo.jpg"
                     alt="Devlance logo"
                     width={32}
                     height={32}
                     className="h-8 w-8 rounded-full object-cover"
-                    priority={true}
                   />
                   <span>Devlance</span>
                 </a>
