@@ -94,9 +94,8 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a
           href="#top"
-          className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
+          className="font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
         >
-          <img src="/Logo.jpg" alt="Devlance logo" className="h-8 w-8 rounded-full object-cover" />
           <span>Devlance</span>
         </a>
 
@@ -158,9 +157,8 @@ export function Navbar() {
                 <a
                   href="#top"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
+                  className="font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f]"
                 >
-                  <img src="/Logo.jpg" alt="Devlance logo" className="h-8 w-8 rounded-full object-cover" />
                   <span>Devlance</span>
                 </a>
                 <button

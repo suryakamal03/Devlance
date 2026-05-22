@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Syne } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Loader from "@/components/ui/Loader";
 
@@ -49,8 +50,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/Logo.jpg",
-        type: "image/jpeg",
+        url: "/icon.png",
+        type: "image/png",
       },
     ],
   },
@@ -72,22 +73,6 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${syne.variable} h-full antialiased`}
     >
-      {GOOGLE_ANALYTICS_ID ? (
-        <head>
-          <link rel="preload" href="/_next/static/media/5c285b27cdda1fe8-s.p.0yo6-5yoeeudq.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);} 
-gtag('js', new Date());
-gtag('config', '${GOOGLE_ANALYTICS_ID}');
-`,
-            }}
-          />
-        </head>
-      ) : null}
       <body className="min-h-full flex flex-col bg-white text-[#0f0f0f]">
         <Loader />
         <script
@@ -98,7 +83,6 @@ gtag('config', '${GOOGLE_ANALYTICS_ID}');
               "@type": "Organization",
               name: "Devlance",
               url: "https://devlance1.vercel.app",
-              logo: "https://devlance1.vercel.app/Logo.jpg",
               description: "Chennai-based Next.js web development agency building fast SEO-optimized websites for startups and small businesses.",
               address: {
                 "@type": "PostalAddress",
@@ -109,7 +93,7 @@ gtag('config', '${GOOGLE_ANALYTICS_ID}');
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",
-                email: "devlancestudio@gmail.com",
+                email: "devlance.agency@gmail.com",
                 availableLanguage: ["English", "Tamil"],
               },
               sameAs: [
@@ -122,6 +106,24 @@ gtag('config', '${GOOGLE_ANALYTICS_ID}');
           }}
         />
         {children}
+        {GOOGLE_ANALYTICS_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+              strategy="lazyOnload"
+            />
+            <Script id="google-analytics" strategy="lazyOnload">
+              {`
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ANALYTICS_ID}', {
+  page_path: window.location.pathname,
+});
+`}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   );

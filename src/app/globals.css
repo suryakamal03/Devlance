@@ -138,3 +138,4 @@ body,
 @media (prefers-reduced-motion: reduce) {
   .marquee__inner { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
