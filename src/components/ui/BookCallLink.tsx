@@ -16,7 +16,7 @@ export function BookCallLink({ children, className, onClick, ...props }: BookCal
   const pathname = usePathname()
   const router = useRouter()
 
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick?.(event)
 
     if (event.defaultPrevented) {
