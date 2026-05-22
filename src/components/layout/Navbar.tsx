@@ -50,10 +50,7 @@ export function Navbar() {
       ].join(" ")}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a
-          href="#top"
-          className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-black"
-        >
+        <Link href="/" className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-black">
           <Image
             src="/Logo.jpg"
             alt="Devlance logo"
@@ -64,7 +61,7 @@ export function Navbar() {
             sizes="32px"
           />
           <span>Devlance</span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
@@ -106,10 +103,7 @@ export function Navbar() {
       <div className={`fixed inset-0 z-50 bg-white transition-all duration-200 ease-out ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}>
         <div className="mx-auto flex h-full max-w-7xl flex-col px-6 py-4 lg:px-8">
           <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4">
-            <Link
-              href="#top"
-              className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-black"
-            >
+            <Link href="/" className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-black">
               <Image
                 src="/Logo.jpg"
                 alt="Devlance logo"

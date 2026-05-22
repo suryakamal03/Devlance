@@ -12,7 +12,6 @@ import {
   Smartphone,
   TrendingDown,
 } from "lucide-react"
-import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -109,16 +108,6 @@ const results = [
   { value: "24/7", label: "Enquiry Access" },
 ]
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-}
-
-const staggerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-}
-
 export function CaseStudyClient() {
   return (
     <main className="bg-white text-[#0f0f0f]">
@@ -199,17 +188,11 @@ export function CaseStudyClient() {
             Most turfs in Chennai lose leads every day.
           </h2>
 
-          <motion.div
-            variants={staggerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mt-8 grid gap-4 md:grid-cols-3"
-          >
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
             {problems.map((problem) => {
               const Icon = problem.icon
               return (
-                <motion.div key={problem.title} variants={sectionVariants}>
+                <div key={problem.title}>
                   <Card className="h-full border-[#e6e6e6] bg-white shadow-none">
                     <CardContent className="p-6">
                       <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fff7ed] text-[#f97316]">
@@ -219,10 +202,10 @@ export function CaseStudyClient() {
                       <p className="mt-3 text-sm leading-7 text-[#555555]">{problem.text}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               )
             })}
-          </motion.div>
+          </div>
         </div>
       </AnimatedSection>
 
@@ -237,15 +220,9 @@ export function CaseStudyClient() {
             flows, gallery content, and trust-building sections.
           </p>
 
-          <motion.div
-            variants={staggerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mt-8 space-y-4"
-          >
+          <div className="mt-8 space-y-4">
             {solutions.map((solution) => (
-              <motion.div key={solution.number} variants={sectionVariants}>
+              <div key={solution.number}>
                 <Card className="border-[#e5e5e5] shadow-sm">
                   <CardContent className="flex gap-4 p-6 sm:gap-6">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#fff7ed] font-heading text-sm font-bold text-[#f97316]">
@@ -259,9 +236,9 @@ export function CaseStudyClient() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </AnimatedSection>
 
@@ -288,17 +265,11 @@ export function CaseStudyClient() {
             Everything a turf business needs.
           </h2>
 
-          <motion.div
-            variants={staggerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mt-8 grid auto-rows-fr gap-5 md:grid-cols-2"
-          >
+          <div className="mt-8 grid auto-rows-fr gap-5 md:grid-cols-2">
             {features.map((feature) => {
               const Icon = feature.icon
               return (
-                <motion.div key={feature.title} variants={sectionVariants}>
+                <div key={feature.title}>
                   <Card className="h-full border-[#222222] bg-[#161616] shadow-none">
                     <CardContent className="p-6">
                       <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1f1f1f] text-[#f97316]">
@@ -310,10 +281,10 @@ export function CaseStudyClient() {
                       <p className="mt-3 text-sm leading-7 text-[#b7b7b7]">{feature.text}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               )
             })}
-          </motion.div>
+          </div>
         </AnimatedSection>
       </section>
 
@@ -402,17 +373,7 @@ function AnimatedSection({
   children: React.ReactNode
   className?: string
 }) {
-  return (
-    <motion.section
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-90px" }}
-      className={className}
-    >
-      {children}
-    </motion.section>
-  )
+  return <section className={className}>{children}</section>
 }
 
 function SectionEyebrow({ children, className }: { children: React.ReactNode; className?: string }) {

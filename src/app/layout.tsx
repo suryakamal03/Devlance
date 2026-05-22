@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { DM_Sans, Syne } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Loader from "@/components/ui/Loader";
 
 const GOOGLE_ANALYTICS_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -74,7 +73,6 @@ export default function RootLayout({
       className={`${dmSans.variable} ${syne.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#0f0f0f]">
-        <Loader />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
