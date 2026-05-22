@@ -44,6 +44,133 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.reveal-section {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 40px));
+  animation: reveal-up var(--reveal-duration, 600ms) ease var(--reveal-delay, 0s) both;
+  will-change: opacity, transform;
+}
+
+.reveal-delay-120 {
+  --reveal-delay: 120ms;
+}
+
+.reveal-duration-750 {
+  --reveal-duration: 750ms;
+}
+
+.reveal-y-56 {
+  --reveal-y: 56px;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 40px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cal-widget-shell {
+  overflow: auto;
+}
+
+.cal-widget-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+.mobile-menu-nav .mobile-menu-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition-property: opacity, transform, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item:nth-child(4) {
+  transition-delay: 240ms;
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item:nth-child(5) {
+  transition-delay: 320ms;
+}
+
+.mobile-menu-nav.is-open .mobile-menu-item:nth-child(6) {
+  transition-delay: 400ms;
+}
+
+.loader-shell {
+  margin: 0.25em 0;
+}
+
+.loader-gradient-defs {
+  position: absolute;
+}
+
+.loader-icon {
+  display: inline-block;
+}
+
+.loader-path {
+  animation: dashArray 2s ease-in-out infinite, dashOffset 2s linear infinite;
+}
+
+.loader-path-two {
+  animation-delay: 0.66s;
+}
+
+.loader-path-three {
+  animation-delay: 1.32s;
+}
+
+@keyframes dashArray {
+  0% {
+    stroke-dasharray: 0, 338;
+  }
+
+  66% {
+    stroke-dasharray: 169, 169;
+  }
+
+  100% {
+    stroke-dasharray: 338, 0;
+  }
+}
+
+@keyframes dashOffset {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -338;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -52,6 +179,12 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }
 

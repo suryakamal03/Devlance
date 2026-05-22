@@ -1,7 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
-
 type AnimatedSectionProps = {
   children: React.ReactNode
   className?: string
@@ -11,15 +7,13 @@ type AnimatedSectionProps = {
 }
 
 export function AnimatedSection({ children, className, delay = 0, duration = 0.6, y = 40 }: AnimatedSectionProps) {
+  const delayClass = delay === 0.12 ? "reveal-delay-120" : ""
+  const durationClass = duration === 0.75 ? "reveal-duration-750" : ""
+  const yClass = y === 56 ? "reveal-y-56" : ""
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration, delay }}
-      className={className}
-    >
+    <div className={["reveal-section", delayClass, durationClass, yClass, className].filter(Boolean).join(" ")}> 
       {children}
-    </motion.div>
+    </div>
   )
 }

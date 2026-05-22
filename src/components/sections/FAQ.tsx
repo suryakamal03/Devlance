@@ -1,6 +1,5 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 import { Plus } from "lucide-react"
 
@@ -152,34 +151,18 @@ export function FAQ() {
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="flex w-full items-center justify-between gap-4 text-left"
-                    aria-expanded={isOpen}
                   >
                     <h3 className="text-base font-medium text-[#0f0f0f]">{question.question}</h3>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="flex size-6 items-center justify-center text-[#0f0f0f]"
-                    >
+                    <span className={`flex size-6 items-center justify-center text-[#0f0f0f] transition-transform duration-300 ${isOpen ? "rotate-45" : "rotate-0"}`}>
                       <Plus className="size-5" />
-                    </motion.span>
+                    </span>
                   </button>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen ? (
-                      <motion.div
-                        key={question.question}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <p className="pt-2 pb-4 text-sm leading-relaxed text-[#555555]">
-                          {question.answer}
-                        </p>
-                      </motion.div>
-                    ) : null}
-                  </AnimatePresence>
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}`}>
+                    <p className="pt-2 pb-4 text-sm leading-relaxed text-[#555555]">
+                      {question.answer}
+                    </p>
+                  </div>
                 </div>
               )
             })}

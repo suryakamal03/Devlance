@@ -13,7 +13,7 @@ export function Hero() {
           </div>
 
           <div className="mt-8 space-y-4">
-            <h1 className="font-heading text-3xl font-bold leading-[1.15] tracking-[-0.05em] text-[#0f0f0f] md:text-4xl lg:text-5xl lg:max-w-4xl">
+            <h1 className="font-heading text-3xl font-bold leading-[1.15] tracking-tighter text-[#0f0f0f] md:text-4xl lg:text-5xl lg:max-w-4xl">
               <span className="block">We Build Websites</span>
               <span className="block">That Work For</span>
               <span className="block">

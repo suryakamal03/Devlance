@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -11,20 +11,6 @@ const navItems = [
   { label: "Testimonials", href: "#testimonials", id: "testimonials" },
   { label: "Plans", href: "#plans", id: "plans" },
 ]
-
-const overlayVariants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  show: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: index * 0.08 },
-  }),
-}
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -82,8 +68,7 @@ export function Navbar() {
   }
 
   return (
-    <motion.header
-      initial={false}
+    <header
       className={[
         "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
         isScrolled
@@ -96,23 +81,24 @@ export function Navbar() {
           href="#top"
           className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
         >
-          <img
+          <Image
             src="/Logo.jpg"
             alt="Devlance logo"
             width={32}
             height={32}
             className="h-8 w-8 rounded-full object-cover"
+            priority
+            sizes="32px"
           />
           <span>Devlance</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <motion.a
+            <a
               key={item.id}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.id)}
-              whileHover={{ y: -1 }}
               className={`relative pb-0.5 text-sm font-medium transition-all duration-200 ${
                 activeSection === item.id
                   ? "text-[#f97316]"
@@ -122,13 +108,9 @@ export function Navbar() {
               {item.label}
 
               {activeSection === item.id && (
-                <motion.span
-                  layoutId="activeNav"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[#f97316]"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[#f97316]" />
               )}
-            </motion.a>
+            </a>
           ))}
         </nav>
 
@@ -150,79 +132,61 @@ export function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isOpen ? (
-          <motion.div
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            variants={overlayVariants}
-            className="fixed inset-0 z-50 bg-white"
-          >
-            <div className="mx-auto flex h-full max-w-7xl flex-col px-6 py-4 lg:px-8">
-              <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4">
-                <a
-                  href="#top"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
-                >
-                  <img
-                    src="/Logo.jpg"
-                    alt="Devlance logo"
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 rounded-full object-cover"
-                  />
-                  <span>Devlance</span>
-                </a>
-                <button
-                  type="button"
-                  aria-label="Close menu"
-                  onClick={() => setIsOpen(false)}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e5e5e5] bg-white text-[#0f0f0f]"
-                >
-                  <X className="size-5" />
-                </button>
-              </div>
+      <div className={`fixed inset-0 z-50 bg-white transition-all duration-200 ease-out ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}>
+        <div className="mx-auto flex h-full max-w-7xl flex-col px-6 py-4 lg:px-8">
+          <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4">
+            <a
+              href="#top"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
+            >
+              <Image
+                src="/Logo.jpg"
+                alt="Devlance logo"
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-full object-cover"
+                priority
+                sizes="32px"
+              />
+              <span>Devlance</span>
+            </a>
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setIsOpen(false)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e5e5e5] bg-white text-[#0f0f0f]"
+            >
+              <X className="size-5" />
+            </button>
+          </div>
 
-              <motion.nav
-                initial="hidden"
-                animate="show"
-                className="flex flex-1 flex-col justify-center gap-6"
+          <nav className={`mobile-menu-nav flex flex-1 flex-col justify-center gap-6 ${isOpen ? "is-open" : ""}`}>
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => {
+                  handleNavClick(e, item.id)
+                  setIsOpen(false)
+                }}
+                className={`mobile-menu-item border-b border-[#e5e5e5] pb-4 text-3xl font-bold tracking-[-0.04em] transition-colors ${
+                  activeSection === item.id ? "text-[#f97316]" : "text-[#0f0f0f] hover:text-[#f97316]"
+                }`}
               >
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.id}
-                    href={item.href}
-                    custom={index}
-                    variants={itemVariants}
-                    onClick={(e) => {
-                      handleNavClick(e, item.id)
-                      setIsOpen(false)
-                    }}
-                    className={`border-b border-[#e5e5e5] pb-4 text-3xl font-bold tracking-[-0.04em] transition-colors ${
-                      activeSection === item.id ? "text-[#f97316]" : "text-[#0f0f0f] hover:text-[#f97316]"
-                    }`}
-                  >
-                    {item.label}
-                  </motion.a>
-                ))}
-                <motion.a
-                  href="#book"
-                  custom={navItems.length}
-                  variants={itemVariants}
-                  onClick={() => setIsOpen(false)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="mt-6 inline-flex w-fit rounded-full bg-[#0f0f0f] px-6 py-3 text-sm font-semibold text-white hover:bg-[#f97316]"
-                >
-                  Book a Call
-                </motion.a>
-              </motion.nav>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </motion.header>
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#book"
+              onClick={() => setIsOpen(false)}
+              className="mobile-menu-item mt-6 inline-flex w-fit rounded-full bg-[#0f0f0f] px-6 py-3 text-sm font-semibold text-white hover:bg-[#f97316]"
+            >
+              Book a Call
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
   )
 }

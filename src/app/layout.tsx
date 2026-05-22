@@ -75,6 +75,34 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-white text-[#0f0f0f]">
         <Loader />
+        <Script
+          id="loader-control"
+          strategy="afterInteractive"
+        >
+          {`
+(function () {
+  var loader = document.querySelector('[data-devlance-loader]');
+  if (!loader) return;
+
+  try {
+    if (sessionStorage.getItem('devlance_loader_shown')) {
+      loader.remove();
+      return;
+    }
+  } catch (error) {}
+
+  window.setTimeout(function () {
+    try {
+      sessionStorage.setItem('devlance_loader_shown', '1');
+    } catch (error) {}
+
+    if (loader && loader.parentNode) {
+      loader.parentNode.removeChild(loader);
+    }
+  }, 2500);
+}());
+`}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
