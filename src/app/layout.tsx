@@ -72,6 +72,12 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${syne.variable} h-full antialiased`}
     >
+      <head>
+        <meta
+          name="google-site-verification"
+          content="hzliCH-bp3WdgO-cwfz71YTo4PYXQOLnv5vZT7l_k7A"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-[#0f0f0f]">
         <script
           type="application/ld+json"
