@@ -1,14 +1,17 @@
 import Link from "next/link"
 
 import { AnimatedSection } from "@/components/sections/AnimatedSection"
+import { BookCallLink } from "@/components/ui/BookCallLink"
 
 const footerLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
-  { label: "Work", href: "/#work" },
-  { label: "Plans", href: "/#plans" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Plans", href: "/plans" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Book a Call", href: "/#book" },
+  { label: "Book a Call", href: "book-call" },
 ]
 
 export function Footer() {
@@ -34,10 +37,17 @@ export function Footer() {
           <div className="flex flex-col gap-6 md:items-end">
             <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-6 gap-y-3 md:justify-end">
               {footerLinks.map((link) => (
-                <Link key={link.label} href={link.href} className="group relative text-sm font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]">
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#f97316] transition-all duration-300 group-hover:w-full" />
-                </Link>
+                link.href === "book-call" ? (
+                  <BookCallLink key={link.label} className="group relative text-sm font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]">
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#f97316] transition-all duration-300 group-hover:w-full" />
+                  </BookCallLink>
+                ) : (
+                  <Link key={link.label} href={link.href} className="group relative text-sm font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]">
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#f97316] transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                )
               ))}
             </nav>
 

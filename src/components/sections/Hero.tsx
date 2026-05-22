@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { AnimatedSection } from "@/components/sections/AnimatedSection"
+import { BookCallLink } from "@/components/ui/BookCallLink"
 
 export function Hero() {
   return (
@@ -29,14 +30,11 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/#book" className="inline-flex h-11 items-center justify-center rounded-full bg-[#0f0f0f] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#f97316]">
+              <BookCallLink className="inline-flex h-11 items-center justify-center rounded-full bg-[#0f0f0f] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#f97316]">
                 Book a Call →
-              </Link>
+              </BookCallLink>
               <Link href="/#work" className="inline-flex h-11 items-center justify-center rounded-full border border-[#0f0f0f] bg-white px-6 py-2.5 text-sm font-semibold text-[#0f0f0f] transition-colors hover:bg-[#f5f5f5]">
                 See Our Work
-              </Link>
-              <Link href="/#services" className="inline-flex h-11 items-center justify-center rounded-full border border-transparent px-0 py-2.5 text-sm font-semibold text-[#f97316] underline decoration-[#fed7aa] underline-offset-4 transition-colors hover:text-[#ea6c0a]">
-                View our services
               </Link>
             </div>
           </div>

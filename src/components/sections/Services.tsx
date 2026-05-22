@@ -1,6 +1,4 @@
 import { Database, Globe, Search, Wrench, Zap } from "lucide-react"
-import Link from "next/link"
-
 import { AnimatedSection } from "@/components/sections/AnimatedSection"
 import { SectionHeading } from "@/components/sections/SectionHeading"
 
@@ -59,9 +57,6 @@ export function Services() {
                     </h3>
                     <p className="text-sm leading-7 text-[#555555]">{service.description}</p>
                   </div>
-                  <Link href="/#book" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#f97316] transition-transform hover:translate-x-1">
-                    Get this service <span aria-hidden="true">→</span>
-                  </Link>
                 </div>
               </article>
             )

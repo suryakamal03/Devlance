@@ -16,6 +16,7 @@ import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { BookCallLink } from "@/components/ui/BookCallLink"
 
 const projectUrl = "https://turf-rust.vercel.app/"
 const heroImage = "/Preview%20Turf.webp"
@@ -123,7 +124,7 @@ export function CaseStudyClient() {
     <main className="bg-white text-[#0f0f0f]">
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-0">
         <Link
-          href="/#work"
+          href="/work"
           className="inline-flex items-center gap-2 text-sm font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]"
         >
           <ArrowLeft className="size-4" />
@@ -378,7 +379,7 @@ export function CaseStudyClient() {
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button asChild className="rounded-full bg-[#f97316] px-8 py-6 text-white hover:bg-[#ea6c0a]">
-              <Link href="/#book">Book a Free Call →</Link>
+              <BookCallLink>Book a Free Call →</BookCallLink>
             </Button>
             <Button
               asChild

@@ -77,7 +77,7 @@ function PreviewCard({ project }: { project: { name: string; url: string; screen
           </a>
 
           <div className="ml-auto">
-            <Link href="/turf-rust/casestudy" className="inline-flex items-center rounded-full border border-[#e5e5e5] px-4 py-2 text-xs font-semibold text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">
+            <Link href="/work/turf-rust/casestudy" className="inline-flex items-center rounded-full border border-[#e5e5e5] px-4 py-2 text-xs font-semibold text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">
               View Case Study →
             </Link>
           </div>

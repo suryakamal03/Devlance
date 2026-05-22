@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { AnimatedSection } from "@/components/sections/AnimatedSection"
 import { SectionHeading } from "@/components/sections/SectionHeading"
+import { BookCallLink } from "@/components/ui/BookCallLink"
 
 const plans = [
   {
@@ -110,8 +111,7 @@ export function Plans() {
                   </div>
 
                   <div className="mt-auto flex md:mt-0 md:w-1/4 md:justify-end md:items-end">
-                    <Link
-                      href="/#book"
+                    <BookCallLink
                       className={`${
                         isActive
                           ? "bg-white text-[#f97316]"
@@ -119,7 +119,7 @@ export function Plans() {
                       } rounded-full px-5 py-2.5 font-semibold text-sm w-full md:w-auto text-center`}
                     >
                       Get Started
-                    </Link>
+                    </BookCallLink>
                   </div>
                 </div>
               </article>

@@ -1,21 +1,25 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 
+import { BookCallLink } from "@/components/ui/BookCallLink"
+
 const navItems = [
-  { label: "Services", href: "#services", id: "services" },
-  { label: "Work", href: "#work", id: "work" },
-  { label: "About", href: "#about", id: "about" },
-  { label: "Testimonials", href: "#testimonials", id: "testimonials" },
-  { label: "Plans", href: "#plans", id: "plans" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Plans", href: "/plans" },
 ]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("hero")
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,37 +40,6 @@ export function Navbar() {
     }
   }, [isOpen])
 
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]")
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        })
-      },
-      {
-        rootMargin: "-40% 0px -55% 0px",
-        threshold: 0,
-      }
-    )
-
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
-  }, [])
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>, id: string) => {
-    e.preventDefault()
-    setActiveSection(id)
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
-  }
-
-  const handleBookClick = () => {
-    document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
     <header
       className={[
@@ -79,7 +52,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a
           href="#top"
-          className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
+          className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-black"
         >
           <Image
             src="/Logo.jpg"
@@ -95,32 +68,30 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <a
-              key={item.id}
+            <Link
+              key={item.href}
               href={item.href}
-              onClick={(e) => handleNavClick(e, item.id)}
               className={`relative pb-0.5 text-sm font-medium transition-all duration-200 ${
-                activeSection === item.id
-                  ? "text-[#f97316]"
-                  : "text-gray-700 hover:text-[#f97316]"
+                pathname === item.href
+                    ? "text-[#f97316]"
+                    : "text-black hover:text-[#f97316]"
               }`}
             >
               {item.label}
 
-              {activeSection === item.id && (
+              {pathname === item.href && (
                 <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[#f97316]" />
               )}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={handleBookClick}
+          <BookCallLink
             className="hidden rounded-full bg-[#0f0f0f] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#f97316] md:inline-flex"
           >
             Book a Call
-          </button>
+          </BookCallLink>
           <button
             type="button"
             aria-label="Open menu"
@@ -135,10 +106,9 @@ export function Navbar() {
       <div className={`fixed inset-0 z-50 bg-white transition-all duration-200 ease-out ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}>
         <div className="mx-auto flex h-full max-w-7xl flex-col px-6 py-4 lg:px-8">
           <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4">
-            <a
+            <Link
               href="#top"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-[#0f0f0f] dark:text-white"
+              className="flex items-center gap-3 font-heading text-[20px] font-bold tracking-[-0.04em] text-black"
             >
               <Image
                 src="/Logo.jpg"
@@ -150,7 +120,7 @@ export function Navbar() {
                 sizes="32px"
               />
               <span>Devlance</span>
-            </a>
+            </Link>
             <button
               type="button"
               aria-label="Close menu"
@@ -163,27 +133,25 @@ export function Navbar() {
 
           <nav className={`mobile-menu-nav flex flex-1 flex-col justify-center gap-6 ${isOpen ? "is-open" : ""}`}>
             {navItems.map((item) => (
-              <a
-                key={item.id}
+              <Link
+                key={item.href}
                 href={item.href}
-                onClick={(e) => {
-                  handleNavClick(e, item.id)
+                onClick={() => {
                   setIsOpen(false)
                 }}
                 className={`mobile-menu-item border-b border-[#e5e5e5] pb-4 text-3xl font-bold tracking-[-0.04em] transition-colors ${
-                  activeSection === item.id ? "text-[#f97316]" : "text-[#0f0f0f] hover:text-[#f97316]"
+                  pathname === item.href ? "text-[#f97316]" : "text-black hover:text-[#f97316]"
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#book"
+            <BookCallLink
               onClick={() => setIsOpen(false)}
               className="mobile-menu-item mt-6 inline-flex w-fit rounded-full bg-[#0f0f0f] px-6 py-3 text-sm font-semibold text-white hover:bg-[#f97316]"
             >
               Book a Call
-            </a>
+            </BookCallLink>
           </nav>
         </div>
       </div>

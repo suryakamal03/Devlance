@@ -8,11 +8,13 @@ import { Testimonials } from "@/components/sections/Testimonials"
 import { Plans } from "@/components/sections/Plans"
 import { FAQ } from "@/components/sections/FAQ"
 import { BookACall } from "@/components/sections/BookACall"
+import { ScrollToBookOnMount } from "@/components/ui/ScrollToBookOnMount"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0f0f0f]">
       <Navbar />
+      <ScrollToBookOnMount />
       <main className="flex-1">
         <Hero />
         <Services />
