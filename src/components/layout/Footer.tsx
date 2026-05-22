@@ -24,13 +24,8 @@ export function Footer() {
             <address className="not-italic space-y-2 text-sm leading-7 text-[#555555]">
               <p>Chennai, Tamil Nadu, India</p>
               <p>
-                <a href="tel:+919XXXXXXXXX" className="font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]">
-                  +91 9XXXXXXXXX
-                </a>
-              </p>
-              <p>
-                <a href="mailto:devlancestudio@gmail.com" className="font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]">
-                  devlancestudio@gmail.com
+                <a href="mailto:devlance.agency@gmail.com" className="font-medium text-[#0f0f0f] transition-colors hover:text-[#f97316]">
+                  devlance.agency@gmail.com
                 </a>
               </p>
             </address>
@@ -46,12 +41,6 @@ export function Footer() {
               ))}
             </nav>
 
-            <div className="flex flex-wrap gap-3 md:justify-end">
-              <a href="https://instagram.com/devlance" aria-label="Follow Devlance on Instagram" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#e5e5e5] px-4 py-2 text-sm font-medium text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">Instagram</a>
-              <a href="https://linkedin.com/company/devlance" aria-label="Devlance on LinkedIn" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#e5e5e5] px-4 py-2 text-sm font-medium text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">LinkedIn</a>
-              <a href="https://twitter.com/devlance" aria-label="Devlance on Twitter" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#e5e5e5] px-4 py-2 text-sm font-medium text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">Twitter</a>
-              <a href="https://github.com/devlance" aria-label="Devlance on GitHub" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#e5e5e5] px-4 py-2 text-sm font-medium text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">GitHub</a>
-            </div>
           </div>
         </div>
 

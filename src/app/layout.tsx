@@ -9,12 +9,14 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon.png",
-        type: "image/png",
+        url: "/Logo.jpg",
+        type: "image/jpeg",
       },
     ],
   },
@@ -72,12 +74,13 @@ export default function RootLayout({
     >
       {GOOGLE_ANALYTICS_ID ? (
         <head>
+          <link rel="preload" href="/_next/static/media/5c285b27cdda1fe8-s.p.0yo6-5yoeeudq.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} />
           <script
             dangerouslySetInnerHTML={{
               __html: `
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+function gtag(){dataLayer.push(arguments);} 
 gtag('js', new Date());
 gtag('config', '${GOOGLE_ANALYTICS_ID}');
 `,
@@ -95,7 +98,7 @@ gtag('config', '${GOOGLE_ANALYTICS_ID}');
               "@type": "Organization",
               name: "Devlance",
               url: "https://devlance1.vercel.app",
-              logo: "https://devlance1.vercel.app/logo.png",
+              logo: "https://devlance1.vercel.app/Logo.jpg",
               description: "Chennai-based Next.js web development agency building fast SEO-optimized websites for startups and small businesses.",
               address: {
                 "@type": "PostalAddress",

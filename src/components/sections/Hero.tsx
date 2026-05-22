@@ -9,7 +9,7 @@ export function Hero() {
         <AnimatedSection className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#fed7aa] bg-[#fff7ed] px-4 py-1.5 text-sm font-medium text-[#f97316]">
             <span className="size-2 rounded-full bg-[#f97316]" aria-hidden="true" />
-            Now accepting clients · June 2026
+            Now accepting clients
           </div>
 
           <div className="mt-8 space-y-4">

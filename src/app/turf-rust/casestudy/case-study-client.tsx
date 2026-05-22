@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 const projectUrl = "https://turf-rust.vercel.app/"
-const heroImage = "/Preview%20Turf.jpeg"
+const heroImage = "/Preview%20Turf.webp"
 
 const overviewItems = [
   { label: "Client", value: "Turf Rust (Demo Project)" },

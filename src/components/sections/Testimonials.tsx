@@ -39,28 +39,29 @@ export function Testimonials() {
           </h2>
         </AnimatedSection>
 
-        <AnimatedSection className="grid gap-4 md:grid-cols-3">
-          {marqueeTestimonials.map((testimonial, index) => (
-            <article
-              key={`${testimonial.name}-${index}`}
-              className="rounded-[1.25rem] border border-[#e5e5e5] bg-white p-5"
-            >
-              <div className="space-y-4">
-                <div className="font-heading text-3xl leading-none text-[#f97316]">&quot;</div>
-                <p className="text-sm leading-[1.6] text-[#0f0f0f]">{testimonial.quote}</p>
-                <div className="text-sm font-semibold text-[#f97316]">★★★★★</div>
-                <div className="flex items-center gap-3 pt-1">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#fed7aa] bg-[#fff7ed] text-xs font-semibold text-[#f97316]">
-                    {testimonial.initials}
+        <AnimatedSection>
+          <div className="marquee mt-6">
+            <div className="marquee__inner animate-marquee">
+              {marqueeTestimonials.map((testimonial, index) => (
+                <div key={`${testimonial.name}-${index}`} className="marquee__item shrink-0">
+                  <div className="flex items-start gap-3">
+                    <div className="font-heading text-2xl leading-none text-[#f97316]">&quot;</div>
+                    <p className="text-sm text-[#0f0f0f]">{testimonial.quote}</p>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[#0f0f0f]">{testimonial.name}</p>
-                    <p className="text-xs text-[#555555]">{testimonial.role}</p>
+                  <div className="flex items-center justify-between gap-4 pt-2">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#fed7aa] bg-[#fff7ed] text-xs font-semibold text-[#f97316]">{testimonial.initials}</div>
+                      <div>
+                        <p className="text-sm font-semibold text-[#0f0f0f]">{testimonial.name}</p>
+                        <p className="text-xs text-[#555555]">{testimonial.role}</p>
+                      </div>
+                    </div>
+                    <div className="text-sm font-semibold text-[#f97316]">★★★★★</div>
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              ))}
+            </div>
+          </div>
         </AnimatedSection>
       </div>
     </section>

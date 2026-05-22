@@ -4,7 +4,7 @@ export function About() {
   return (
     <section id="about" className="bg-[#fafafa] py-24 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <AnimatedSection className="space-y-6 rounded-[2rem] border border-[#e5e5e5] bg-white p-8 lg:p-12">
+        <AnimatedSection className="space-y-6 rounded-4xl border border-[#e5e5e5] bg-white p-8 lg:p-12" delay={0.12} duration={0.75} y={56}>
           <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#f97316]">ABOUT</p>
             <h2 className="font-heading text-4xl font-bold leading-tight tracking-[-0.04em] text-[#0f0f0f]">

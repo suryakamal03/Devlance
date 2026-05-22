@@ -80,7 +80,7 @@ export function Plans() {
                     <div className="mt-4 space-y-2">
                       {plan.features.map((f) => (
                         <div key={f} className="flex items-center gap-3">
-                          <span className="w-4 h-4 flex-shrink-0">
+                          <span className="w-4 h-4 shrink-0">
                             <CheckCircle active={isActive} />
                           </span>
                           <div className={`${isActive ? "text-white" : "text-[#0f0f0f]"} text-sm font-medium`}>{f}</div>
@@ -92,7 +92,6 @@ export function Plans() {
                       <div className="mt-5 flex flex-col gap-1">
                         <div className="flex items-center gap-2">
                           <span className="text-sm text-white/70 line-through">₹10,000</span>
-                          <span className="text-sm text-white/70 line-through">₹8,000</span>
                           <span className="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-[#f97316]">
                             Limited Offer
                           </span>

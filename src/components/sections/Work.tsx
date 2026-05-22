@@ -8,7 +8,7 @@ const projects = [
   {
     name: "Turf Rust",
     url: "https://turf-rust.vercel.app/",
-    screenshot: "/Preview%20Turf.jpeg",
+    screenshot: "/Preview%20Turf.webp",
   },
 ]
 

@@ -78,4 +78,63 @@ body,
   .marquee-track {
     gap: 0.75rem;
   }
+
+  /* Continuous left-to-right marquee animation */
+  .marquee {
+    overflow: hidden;
+  }
+
+  .marquee-track-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    white-space: nowrap;
+  }
+
+  .animate-marquee {
+    animation: marquee-right 20s linear infinite;
+  }
+
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+}
+
+/* Desktop / general marquee styles (single-line testimonials) */
+.marquee {
+  overflow: hidden;
+}
+.marquee__inner {
+  display: inline-flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  align-items: stretch;
+  animation: marquee-ltr 20s linear infinite;
+}
+.marquee__item {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  white-space: normal;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  width: clamp(20rem, 30vw, 26rem);
+  min-height: 11rem;
+}
+
+@keyframes marquee-ltr {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__inner { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
