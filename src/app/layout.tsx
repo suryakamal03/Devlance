@@ -27,6 +27,25 @@ export const metadata: Metadata = {
   title: "Devlance | Next.js Web Development Agency India",
   description:
     "Devlance is a Chennai-based Next.js web development agency building fast, SEO-optimized websites for startups and small businesses using Sanity CMS and Vercel. Starting ₹5,000.",
+  applicationName: "Devlance",
+  creator: "Devlance",
+  publisher: "Devlance",
+  authors: [
+    {
+      name: "Devlance",
+      url: "https://devlance1.vercel.app",
+    },
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   keywords: [
     "web development agency India",
     "hire web developer",
@@ -49,16 +68,42 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/Logo.jpg",
-        type: "image/jpeg",
+        url: "/Logo.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
       },
     ],
+    shortcut: "/Logo.png",
+    apple: "/Logo.png",
   },
   openGraph: {
     title: "Devlance | Next.js Web Development Agency India",
-    description: "Devlance builds fast, SEO-optimized websites for startups and small businesses in India.",
+    description:
+      "Devlance builds fast, SEO-optimized websites for startups and small businesses in India.",
     url: "https://devlance1.vercel.app",
+    siteName: "Devlance",
     type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Devlance Web Development Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Devlance | Next.js Web Development Agency India",
+    description:
+      "Fast, modern websites built with Next.js and Sanity CMS. Starting ₹5,000.",
+    images: ["/og-image.png"],
+    creator: "@devlance",
   },
 };
 
@@ -87,7 +132,15 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Devlance",
               url: "https://devlance1.vercel.app",
-              description: "Chennai-based Next.js web development agency building fast SEO-optimized websites for startups and small businesses.",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://devlance1.vercel.app/Logo.png",
+                width: 512,
+                height: 512,
+              },
+              image: "https://devlance1.vercel.app/Logo.png",
+              description:
+                "Chennai-based Next.js web development agency building fast SEO-optimized websites for startups and small businesses.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Chennai",
@@ -100,12 +153,7 @@ export default function RootLayout({
                 email: "devlance.agency@gmail.com",
                 availableLanguage: ["English", "Tamil"],
               },
-              sameAs: [
-                "https://linkedin.com/company/devlance",
-                "https://twitter.com/devlance",
-                "https://github.com/devlance",
-                "https://instagram.com/devlance",
-              ],
+              sameAs: [],
             }),
           }}
         />
