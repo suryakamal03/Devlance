@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Devlance | Next.js Web Development Agency India",
+  title: "Devlance |  Web Development Agency ",
   description:
-    "Devlance is a Chennai-based Next.js web development agency building fast, SEO-optimized websites for startups and small businesses using Sanity CMS and Vercel. Starting ₹5,000.",
+    "Devlance is a Chennai-based Next.js web development agency building fast, SEO-optimized websites for startups and small businesses .",
   applicationName: "Devlance",
   creator: "Devlance",
   publisher: "Devlance",
