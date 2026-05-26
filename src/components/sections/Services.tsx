@@ -1,36 +1,30 @@
+import { client } from "@/sanity/client"
 import { Database, Globe, Search, Wrench, Zap } from "lucide-react"
 import { AnimatedSection } from "@/components/sections/AnimatedSection"
 import { SectionHeading } from "@/components/sections/SectionHeading"
 
-const services = [
-  {
-    title: "Custom Websites",
-    description: "Built with Next.js for speed, SEO, and a clean user journey that turns interest into enquiries.",
-    icon: Globe,
-  },
-  {
-    title: "Sanity CMS Setup",
-    description: "Manage your content easily with a clean, powerful CMS dashboard that keeps updates simple for your team.",
-    icon: Database,
-  },
-  {
-    title: "Landing Pages",
-    description: "High-converting pages designed to capture attention quickly, explain the offer clearly, and drive action.",
-    icon: Zap,
-  },
-  {
-    title: "SEO Optimization",
-    description: "Rank higher and get found on Google with on-page structure, semantic content, and technical best practices.",
-    icon: Search,
-  },
-  {
-    title: "Website Maintenance",
-    description: "We keep your site fast, secure, and updated so it continues performing well after launch.",
-    icon: Wrench,
-  },
-]
+const query = `*[_type == "service"] | order(order asc) {
+  _id, title, description, icon
+}`
 
-export function Services() {
+const iconMap = {
+  Globe,
+  Database,
+  Search,
+  Wrench,
+  Zap,
+} as const
+
+type Service = {
+  _id: string
+  title: string
+  description?: string | null
+  icon?: string | null
+}
+
+export async function Services() {
+  const services = await client.fetch<Service[]>(query, {}, { next: { revalidate: 60 } })
+
   return (
     <section id="services" className="bg-[#fafafa] py-24 lg:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -43,7 +37,7 @@ export function Services() {
 
         <AnimatedSection className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => {
-            const Icon = service.icon
+            const Icon = iconMap[service.icon as keyof typeof iconMap] ?? Globe
 
             return (
               <article key={service.title} className="group rounded-2xl border border-[#e5e5e5] bg-white p-8">

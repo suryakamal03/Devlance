@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Devlance |  Web Development Agency ",
+  title: "Devlance - Web Design & Development Agency",
   description:
-    "Devlance is a Chennai-based Next.js web development agency building fast, SEO-optimized websites for startups and small businesses .",
+    "Devlance is a Chennai-based web development agency building fast, SEO-optimized websites for startups and small businesses using Next.js and Sanity CMS.",
   applicationName: "Devlance",
   creator: "Devlance",
   publisher: "Devlance",
@@ -47,6 +47,10 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
+    "Devlance",
+    "Devlance web design",
+    "Devlance web development",
+    "Devlance agency",
     "web development agency India",
     "hire web developer",
     "Next.js website development",
@@ -81,9 +85,9 @@ export const metadata: Metadata = {
     apple: "/Logo.png",
   },
   openGraph: {
-    title: "Devlance | Next.js Web Development Agency India",
+    title: "Devlance - Web Design & Development Agency",
     description:
-      "Devlance builds fast, SEO-optimized websites for startups and small businesses in India.",
+      "Devlance builds fast, SEO-optimized websites for startups and small businesses.",
     url: "https://devlance1.vercel.app",
     siteName: "Devlance",
     type: "website",
@@ -99,9 +103,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Devlance | Next.js Web Development Agency India",
+    title: "Devlance - Web Design & Development Agency",
     description:
-      "Fast, modern websites built with Next.js and Sanity CMS. Starting ₹5,000.",
+      "Fast, modern websites built with Next.js and Sanity CMS for startups and small businesses.",
     images: ["/og-image.png"],
     creator: "@devlance",
   },
@@ -121,6 +125,34 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="hzliCH-bp3WdgO-cwfz71YTo4PYXQOLnv5vZT7l_k7A"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Devlance",
+              url: "https://devlance1.vercel.app",
+              logo: "https://devlance1.vercel.app/Logo.png",
+              description:
+                "A Chennai-based web development agency building fast, SEO-optimized websites for startups and small businesses",
+              sameAs: [
+                "https://twitter.com/devlance",
+              ],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Chennai",
+                addressCountry: "IN",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Support",
+              },
+              areaServed: ["IN", "US", "GB"],
+              serviceType: "Web Development, Web Design, SEO Optimization",
+            }),
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-white text-[#0f0f0f]">
