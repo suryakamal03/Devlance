@@ -22,8 +22,43 @@ type Service = {
   icon?: string | null
 }
 
+const fallbackServices: Service[] = [
+  {
+    _id: "fallback-nextjs-websites",
+    title: "Next.js websites",
+    description: "Fast, modern websites built for performance, SEO, and conversion.",
+    icon: "Globe",
+  },
+  {
+    _id: "fallback-sanity-cms",
+    title: "Sanity CMS integration",
+    description: "Flexible content management that makes site updates simple for your team.",
+    icon: "Database",
+  },
+  {
+    _id: "fallback-seo",
+    title: "SEO optimization",
+    description: "Technical and on-page SEO foundations that help your site get discovered.",
+    icon: "Search",
+  },
+  {
+    _id: "fallback-maintenance",
+    title: "Website maintenance",
+    description: "Ongoing support to keep your site secure, stable, and up to date.",
+    icon: "Wrench",
+  },
+  {
+    _id: "fallback-speed",
+    title: "Performance tuning",
+    description: "Speed-focused improvements that reduce load time and improve user experience.",
+    icon: "Zap",
+  },
+]
+
 export async function Services() {
-  const services = await client.fetch<Service[]>(query, {}, { next: { revalidate: 60 } })
+  const services = client
+    ? await client.fetch<Service[]>(query, {}, { next: { revalidate: 60 } }).catch(() => fallbackServices)
+    : fallbackServices
 
   return (
     <section id="services" className="bg-[#fafafa] py-24 lg:py-28">
