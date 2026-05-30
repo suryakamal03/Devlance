@@ -30,10 +30,16 @@ const fallbackServices: Service[] = [
     icon: "Globe",
   },
   {
-    _id: "fallback-sanity-cms",
-    title: "Sanity CMS integration",
-    description: "Flexible content management that makes site updates simple for your team.",
-    icon: "Database",
+    _id: "fallback-landing-pages",
+    title: "Landing pages",
+    description: "High-converting landing pages designed for campaigns and lead generation.",
+    icon: "Globe",
+  },
+  {
+    _id: "fallback-business-websites",
+    title: "Business websites",
+    description: "Complete business websites focused on performance, clarity, and SEO.",
+    icon: "Globe",
   },
   {
     _id: "fallback-seo",
@@ -56,9 +62,15 @@ const fallbackServices: Service[] = [
 ]
 
 export async function Services() {
-  const services = client
-    ? await client.fetch<Service[]>(query, {}, { next: { revalidate: 60 } }).catch(() => fallbackServices)
-    : fallbackServices
+  let services: Service[] = []
+
+  if (client) {
+    services = await client.fetch<Service[]>(query, {}, { next: { revalidate: 60 } }).catch(() => [])
+  }
+
+  if (!services || services.length === 0) {
+    services = fallbackServices
+  }
 
   return (
     <section id="services" className="bg-[#fafafa] py-24 lg:py-28">
@@ -66,7 +78,7 @@ export async function Services() {
         <SectionHeading
           label="SERVICES"
           title={["Everything you need", "to get online and grow."]}
-          description="From custom Next.js websites to Sanity CMS integration, we offer everything a growing business needs to establish a strong online presence. Our team specializes in performance-first development that ranks on Google and converts visitors into customers."
+          description="From custom Next.js websites to managed content and ongoing support, we offer everything a growing business needs to establish a strong online presence. Our team specializes in performance-first development that ranks on Google and converts visitors into customers."
           titleClassName="max-w-3xl"
         />
 

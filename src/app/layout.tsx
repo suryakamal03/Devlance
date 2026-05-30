@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   title: "Devlance - Web Design & Development Agency",
   description:
-    "Devlance is a Chennai-based web development agency building fast, SEO-optimized websites for startups and small businesses using Next.js and Sanity CMS.",
+    "Devlance builds fast, modern, and SEO-optimized websites designed to help businesses grow online. From landing pages to complete business websites, we focus on performance, clean development, and search visibility. We help your products and services get discovered on Google, bringing more potential customers to your business.",
   applicationName: "Devlance",
   creator: "Devlance",
   publisher: "Devlance",
@@ -56,10 +56,6 @@ export const metadata: Metadata = {
     "Next.js website development",
     "Next.js web development agency",
     "Next.js website India",
-    "Sanity CMS website",
-    "Sanity CMS integration",
-    "headless CMS website",
-    "Next.js Sanity CMS developer",
     "affordable website design",
     "small business website",
     "website development Chennai",
@@ -87,7 +83,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devlance - Web Design & Development Agency",
     description:
-      "Devlance builds fast, SEO-optimized websites for startups and small businesses.",
+      "Devlance builds fast, modern, and SEO-optimized websites designed to help businesses grow online. From landing pages to complete business websites, we focus on performance, clean development, and search visibility. We help your products and services get discovered on Google, bringing more potential customers to your business.",
     url: "https://devlance1.vercel.app",
     siteName: "Devlance",
     type: "website",
@@ -105,7 +101,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Devlance - Web Design & Development Agency",
     description:
-      "Fast, modern websites built with Next.js and Sanity CMS for startups and small businesses.",
+      "Devlance builds fast, modern, and SEO-optimized websites designed to help businesses grow online. From landing pages to complete business websites, we focus on performance, clean development, and search visibility. We help your products and services get discovered on Google, bringing more potential customers to your business.",
     images: ["/og-image.png"],
     creator: "@devlance",
   },
@@ -136,7 +132,7 @@ export default function RootLayout({
               url: "https://devlance1.vercel.app",
               logo: "https://devlance1.vercel.app/Logo.png",
               description:
-                "A Chennai-based web development agency building fast, SEO-optimized websites for startups and small businesses",
+                "Devlance builds fast, modern, and SEO-optimized websites designed to help businesses grow online. From landing pages to complete business websites, we focus on performance, clean development, and search visibility. We help your products and services get discovered on Google, bringing more potential customers to your business.",
               sameAs: [
                 "https://twitter.com/devlance",
               ],
@@ -172,7 +168,7 @@ export default function RootLayout({
               },
               image: "https://devlance1.vercel.app/Logo.png",
               description:
-                "Chennai-based Next.js web development agency building fast SEO-optimized websites for startups and small businesses.",
+                "Devlance builds fast, modern, and SEO-optimized websites designed to help businesses grow online. From landing pages to complete business websites, we focus on performance, clean development, and search visibility. We help your products and services get discovered on Google, bringing more potential customers to your business.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Chennai",

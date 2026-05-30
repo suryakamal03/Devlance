@@ -26,7 +26,7 @@ export function Hero() {
             </h1>
 
             <p className="max-w-[540px] text-sm leading-7 text-[#555555] md:text-base">
-              Devlance is a Chennai-based web development team that builds fast, modern, and SEO-optimized websites using Next.js and Sanity CMS. Whether you need a landing page or a full business website, we deliver clean code, strong search visibility, and practical results that help your brand grow.
+              Devlance is a web development team that builds fast, modern, and SEO-optimized websites using Next.js. Whether you need a landing page or a full business website, we deliver clean code, strong search visibility, and practical results that help your brand grow.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

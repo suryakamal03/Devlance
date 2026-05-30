@@ -19,7 +19,7 @@ const questions = [
   {
     question: "Will I be able to update my website content myself?",
     answer:
-      "Yes. All websites we build come with Sanity CMS integrated, giving you a clean and simple dashboard to edit text, images, blog posts, and pages without any coding knowledge. Whether your site is a landing page or a full multi-page website, Sanity makes content management straightforward and stress-free. We also provide a full walkthrough after launch so you feel confident managing your own site.",
+      "Yes. You will be able to update basic page content like text and images. We provide a full walkthrough after launch so you feel confident managing your site. For more advanced content workflows or third-party integrations we can discuss custom options.",
   },
   {
     question: "What information do you need from me to start building my website?",
@@ -34,12 +34,12 @@ const questions = [
   {
     question: "How much does a professional website cost?",
     answer:
-      "Our website packages start from ₹5,000 for a landing page and go up to ₹12,000 for a full multi-page website with Next.js and Sanity CMS. We offer transparent fixed pricing with no hidden fees.",
+      "Our website packages start from ₹5,000 for a landing page and go up to ₹12,000 for a full multi-page website built with Next.js. We offer transparent fixed pricing with no hidden fees.",
   },
   {
     question: "What technology do you use to build websites?",
     answer:
-      "We build all websites using Next.js, a modern React framework that delivers exceptional speed, SEO performance, and scalability. For content management we integrate Sanity CMS, which gives you a powerful yet easy-to-use dashboard to manage your content. We also handle deployment on Vercel for fast, reliable global hosting. This stack ensures your website is fast, secure, and future-proof.",
+      "We build all websites using Next.js, a modern React framework that delivers exceptional speed, SEO performance, and scalability. We handle deployment on Vercel for fast, reliable global hosting. If you require advanced content workflows or a separate CMS integration, we can discuss that as a custom option.",
   },
   {
     question: "How do payments work for website development projects?",
@@ -73,7 +73,7 @@ const faqSchema = {
       name: "Will I be able to update my website content myself?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. All our websites come with Sanity CMS integrated. You get a clean dashboard to edit text, images, and pages without any coding knowledge. We provide a full walkthrough after launch.",
+        text: "Yes. You will be able to update basic page content like text and images; we provide a full walkthrough after launch. For advanced content workflows or third-party integrations, we can discuss custom options.",
       },
     },
     {
@@ -97,7 +97,7 @@ const faqSchema = {
       name: "How much does a professional website cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Packages start from ₹5,000 for a landing page up to ₹12,000 for a full website. Transparent fixed pricing with no hidden fees.",
+        text: "Packages start from ₹5,000 for a landing page up to ₹12,000 for a full website built with Next.js. Transparent fixed pricing with no hidden fees.",
       },
     },
     {
@@ -105,7 +105,7 @@ const faqSchema = {
       name: "What technology do you use to build websites?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We build all websites using Next.js for speed and SEO, Sanity CMS for easy content management, and deploy on Vercel for fast global hosting.",
+        text: "We build all websites using Next.js for speed and SEO, and deploy on Vercel for fast global hosting. Advanced content workflows or CMS integrations are available as custom options.",
       },
     },
     {

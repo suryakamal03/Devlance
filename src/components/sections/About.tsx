@@ -18,13 +18,13 @@ export function About() {
                 We are a small but focused web development agency based in Chennai, Tamil Nadu. We work with local businesses, startups, and entrepreneurs who want a professional online presence without the agency price tag. Our goal is to make modern websites feel simple to launch, easy to manage, and strong enough to compete in search.
               </p>
               <p>
-                Every project begins with a clear conversation about what the business actually needs. Some clients need a fast landing page that converts visitors into calls. Others need a larger website with services, case studies, enquiry forms, and CMS-controlled pages. We shape the build around those goals instead of forcing a template onto the brand.
+                Every project begins with a clear conversation about what the business actually needs. Some clients need a fast landing page that converts visitors into calls. Others need a larger website with services, case studies, enquiry forms, and pages that are easy to update. We shape the build around those goals instead of forcing a template onto the brand.
               </p>
             </div>
 
             <div className="space-y-4">
               <p>
-                We handcraft each site with Next.js for speed, Sanity CMS for flexible editing, and Vercel for reliable global hosting. That stack gives clients a practical balance of performance, maintainability, and future growth. It also keeps the content editable so marketing updates do not require a developer every time a headline changes.
+                We handcraft each site with Next.js for speed and Vercel for reliable global hosting. That stack gives clients a practical balance of performance, maintainability, and future growth. We provide a handover so marketing updates can be made without a developer for common content changes.
               </p>
               <p>
                 Our process is straightforward. We start with a free discovery call to understand your audience, services, and goals. Then we design, build, test, and launch the site, usually within two weeks for a standard business website. After launch, we stay available for support, maintenance, and performance improvements so the site stays fast and current.

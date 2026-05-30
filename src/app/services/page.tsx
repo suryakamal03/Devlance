@@ -6,7 +6,7 @@ import { Services } from "@/components/sections/Services"
 
 export const metadata: Metadata = {
   title: "Services | Devlance",
-  description: "Explore Devlance services for custom Next.js websites, Sanity CMS setup, landing pages, SEO, and maintenance.",
+  description: "Explore Devlance services for custom Next.js websites, landing pages, SEO, and maintenance.",
 }
 
 export default function ServicesPage() {
