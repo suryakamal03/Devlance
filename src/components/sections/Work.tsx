@@ -9,6 +9,17 @@ const projects = [
     name: "Turf Rust",
     url: "https://turf-rust.vercel.app/",
     screenshot: "/Preview%20Turf.webp",
+    caseStudyUrl: "/work/turf-rust/casestudy",
+    description:
+      "A demo sports-turf website designed to show how the Devlance stack handles service pages, enquiry flows, and polished visuals.",
+  },
+  {
+    name: "NEXUS CAFE",
+    url: "https://game-center-eta-silk.vercel.app/",
+    screenshot: "/Preview%20Gaming.webp",
+    caseStudyUrl: "/work/nexus-cafe/casestudy",
+    description:
+      "A premium gaming cafe landing page focused on bookings, menu highlights, and a cinematic visual style.",
   },
 ]
 
@@ -39,12 +50,11 @@ export function Work() {
   )
 }
 
-function PreviewCard({ project }: { project: { name: string; url: string; screenshot?: string } }) {
-  const slug = project.name
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9\-]/g, "")
-
+function PreviewCard({
+  project,
+}: {
+  project: { name: string; url: string; screenshot?: string; caseStudyUrl: string; description: string }
+}) {
   return (
     <div className="space-y-3">
       <div className="relative w-full overflow-hidden bg-transparent aspect-video rounded-md shadow-sm transition-all duration-300">
@@ -77,15 +87,13 @@ function PreviewCard({ project }: { project: { name: string; url: string; screen
           </a>
 
           <div className="ml-auto">
-            <Link href="/work/turf-rust/casestudy" className="inline-flex items-center rounded-full border border-[#e5e5e5] px-4 py-2 text-xs font-semibold text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">
+            <Link href={project.caseStudyUrl} className="inline-flex items-center rounded-full border border-[#e5e5e5] px-4 py-2 text-xs font-semibold text-[#0f0f0f] transition-colors hover:border-[#f97316] hover:text-[#f97316]">
               View Case Study →
             </Link>
           </div>
         </div>
         <p className="mt-2 text-sm leading-7 text-[#555555]">
-          {slug === "turf-rust"
-            ? "A demo sports-turf website designed to show how the Devlance stack handles service pages, enquiry flows, and polished visuals."
-            : "A polished project preview that demonstrates the kind of fast, conversion-focused work we deliver for client sites."}
+          {project.description}
         </p>
       </div>
     </div>
